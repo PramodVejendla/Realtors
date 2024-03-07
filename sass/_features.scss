@@ -1,0 +1,40 @@
+@use "./base" as var;
+
+.features {
+  // background-color: var.$color-grey-light-2;
+  grid-column: center-start / center-end;
+
+  margin: 15rem 0;
+
+  display: grid;
+  gap: 6rem;
+  // grid-template-columns: repeat(3, 1fr); not responsive
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  // grid-template-rows: auto  auto; no need create automatically - implicit grid
+  align-items: start;
+
+  @media only screen and (max-width: var.$bp-medium) {
+    margin: 12rem 0;
+  }
+  @media only screen and (max-width: var.$bp-small) {
+    margin: 8rem 0;
+  }
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  row-gap: 1.5rem;
+  column-gap: 2.5rem;
+
+  &__icon {
+    fill: var.$color-primary;
+    width: 4.5rem;
+    height: 4.5rem;
+    grid-row: 1 / span 2;
+    transform: translateY(-1rem);
+  }
+  &__text {
+    font-size: 1.7rem;
+  }
+}
